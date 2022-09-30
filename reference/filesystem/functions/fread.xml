@@ -140,9 +140,10 @@ fclose($handle);
 <?php
 $handle = fopen("http://www.example.com/", "rb");
 $contents = '';
-while (!feof($handle)) {
+do {
   $contents .= fread($handle, 8192);
-}
+} while(!feof($handle));
+
 fclose($handle);
 ?>
 ]]>
